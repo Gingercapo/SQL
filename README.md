@@ -22,3 +22,12 @@ There are three lessons in this Nanodegree aimed at helping you understand how t
 
 3. **SQL Aggregations** 
 - In this final lesson, you will learn some more advanced features of SQL. You will gain the ability to summarize data from multiple tables in a database.  At the end of these three lessons, you will be ready to tackle the project. The project aims to assure you have mastered these three topics, but you will also see some of the more advanced queries that were not covered in this course. These are just meant to introduce you to the advanced material, but don't feel discouraged if you didn't get these - they were beyond the scope of the class, and they are not required to pass the project!
+
+### Why Businesses Like Databases
+***Data integrity is ensured*** - only the data you want entered is entered, and only certain users are able to enter data into the database.
+
+
+***Data can be accessed quickly*** - SQL allows you to obtain results very quickly from the data stored in a database. Code can be optimized to quickly pull results.
+
+
+***Data is easily shared*** - multiple individuals can access data stored in a database, and the data is the same for all users allowing for consistent results for anyone with access to your database.
