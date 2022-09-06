@@ -2,15 +2,15 @@
 
 ### Introduction 
 
-Throughout the next three lessons, you will be learning how to write Structured Query Language (SQL) to interact with a database here in the classroom. You will not need to download any software, and you will still be able to test your skills!  SQL is an extremely in demand skill. Tons of jobs use SQL, and in the next lessons you will be learning how to utilize SQL to analyze data and answer business questions.  
+> I be learnt how to write Structured Query Language (SQL) to interact with a database. I don't need to download any software, and I will still be able to test my skills!  SQL is an extremely in demand skill. Tons of jobs use SQL, and in the this project i will be learning how to utilize SQL to analyze data and answer business questions.  
 
 ### Project 
 
-The skills you learn in the classroom are directly extendable to writing SQL in other environments outside this classroom. For the project at the end of these lessons, you will download a program that will allow you to write code on your local machine. You will then analyze and answer business questions using data associated with a music store by querying their database.  
+The skills i learnt in the project are directly extendable to writing SQL in other environments outside of postgres. For this project at the end of these project, I will download a program that will allow you to write code on your local machine. I then analyze and answer business questions using data associated with a ```music store``` by querying their database.  
 
 ### Lesson Outline 
 
-There are three lessons in this Nanodegree aimed at helping you understand how to write SQL queries. If you choose to take the Predictive Analytics Nanodegree or the Data Analyst Nanodegree programs, these three lessons will also be a part of these programs. However, there is also an additional lesson on Advanced 
+There are three Project in this Nanodegree aimed at helping me understand how to write SQL queries. If you choose to take the Predictive Analytics Nanodegree or the Data Analyst Nanodegree programs, these three project will also be a part of these programs. However, there is also an additional lesson on Advanced 
 
 > ***SQL also taught by Derek!  The three lessons in this course aim at the following components of SQL:***
 
