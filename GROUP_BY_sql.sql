@@ -11,13 +11,13 @@ Quiz: GROUP BY
 #Try some of the below to see if you can differentiate to find the easiest solution.
 
 #1. Which account (by name) placed the earliest order? Your solution should have the account name and the date of the order.
-select a.name, min(o.occurred_at) min_C
-from accounts a
-inner join orders o
+SELECT a.name, min(o.occurred_at) min_C
+FROM accounts a
+INNER JOIN orders o
       ON o.account_id = a.id
-group by a.name, o.occurred_at
-order by  o.occurred_at
-limit 1
+GROUP BY a.name, o.occurred_at
+ORDER BY  o.occurred_at
+LIMIT 1
 
 
 #2. Find the total sales in usd for each account. You should include two columns - the total sales for each company's orders in usd and the company name.
