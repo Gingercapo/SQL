@@ -1,5 +1,5 @@
 
-Quiz: GROUP BY
+#Quiz: GROUP BY
 #GROUP BY Note
 #Now that you have been introduced to JOINs, GROUP BY, and aggregate functions, the real power of SQL starts to come to life. 
 #Try some of the below to put your skills to the test!
