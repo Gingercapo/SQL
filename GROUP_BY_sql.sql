@@ -35,18 +35,23 @@ FROM accounts a
 
 #3. Via what channel did the most recent (latest) web_event occur, which account was associated with this web_event? Your query should return only three values - the date, channel, and account name.
 SELECT 
-      w.occurred_at, 
-      w.channel, a.name
-      FROM web_events w
-         JOIN accounts a
-         ON w.account_id = a.id 
-         ORDER BY w.occurred_at DESC
-          LIMIT 1;
-
+      occurred_at, 
+      channel, 
+      a.name
+FROM web_events w
+     INNER JOIN accounts a
+           ON w.account_id = a.id   
+           ORDER by 1 DESC
+LIMIT 1
 
 
 #4. Find the total number of times each type of channel from the web_events was used. Your final table should have two columns - the channel and the number of times the channel was used.
 
+           
+           
+           
+
+       
 #5. Who was the primary contact associated with the earliest web_event?
 
 #6. What was the smallest order placed by each account in terms of total usd. Provide only two columns - the account name and the total usd. Order from smallest dollar amounts to largest.
