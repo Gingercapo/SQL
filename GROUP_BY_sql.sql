@@ -13,7 +13,7 @@ Quiz: GROUP BY
 #1. Which account (by name) placed the earliest order? Your solution should have the account name and the date of the order.
 SELECT 
       a.name,
-      min(o.occurred_at) min_C
+      MIN(o.occurred_at) min_C
 FROM accounts a
      INNER JOIN orders o
            ON o.account_id = a.id
