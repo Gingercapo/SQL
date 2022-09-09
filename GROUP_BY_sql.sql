@@ -54,6 +54,15 @@ FROM web_events
           ORDER BY 2 DESC
            
 #5. Who was the primary contact associated with the earliest web_event?
+SELECT 
+      name, 
+      primary_poc, 
+      MIN(occurred_at) time_b
+FROM accounts a
+INNER JOIN web_events w
+	   ON a.id = w.account_id
+          GROUP BY 1, 2
+           limit 1
 
 #6. What was the smallest order placed by each account in terms of total usd. Provide only two columns - the account name and the total usd. Order from smallest dollar amounts to largest.
 
