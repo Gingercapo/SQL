@@ -101,7 +101,14 @@ FROM orders o
 
 
 #10. Determine the number of times a particular channel was used in the web_events table for each region. Your final table should have three columns - the region name, the channel, and the number of occurrences. Order your table with the highest number of occurrences first.
-
+SELECT 
+	r.name, 
+	channel, count(*) count_channel
+FROM web_events w
+	LEFT JOIN region r
+	      ON w.id = r.id
+	       Group BY channel, name
+		 ORDER BY 3 
 
 #11. For each account, determine the average amount of each type of paper they purchased across their orders. Your result should have four columns - one for the account name and one for the average quantity purchased for each of the paper types for each account.
 SELECT 
