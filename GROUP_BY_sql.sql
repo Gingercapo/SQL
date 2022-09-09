@@ -73,40 +73,9 @@ LEFT JOIN accounts a
       ON o.account_id = a.id
    GROUP BY name
       ORDER BY 2
+            
       
-#7. For each account, determine the average amount of each type of paper they purchased across their orders. Your result should have four columns - one for the account name and one for the average quantity purchased for each of the paper types for each account.
-SELECT 
-	a.name,
-	AVG(standard_qty) mean_std_qty,
-        AVG(gloss_qty) mean_gloss_qty,
-        AVG(poster_qty) mean_poster_qty
-FROM orders o
-INNER JOIN accounts a
-      ON o.account_id = a.id
-       GROUP BY a.name      
-      
-      
-#8. For each account, determine the average amount spent per order on each paper type. Your result should have four columns - one for the account name and one for the average amount spent on each paper type.
-
-
-#9. Determine the number of times a particular channel was used in the web_events table for each sales rep. Your final table should have three columns - the name of the sales rep, the channel, and the number of occurrences. Order your table with the highest number of occurrences first.
-
-
-#10. Determine the number of times a particular channel was used in the web_events table for each region. Your final table should have three columns - the region name, the channel, and the number of occurrences. Order your table with the highest number of occurrences first.
-           
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
+ 
 #7. Find the number of sales reps in each region. Your final table should have two columns - the region and the number of sales_reps. Order from fewest reps to most reps.
 SELECT  
 	r.name, 
@@ -116,3 +85,32 @@ LEFT JOIN region r
       ON s.region_id = r.id
     GROUP BY r.name
       ORDER BY 2 
+
+#8. For each account, determine the average amount spent per order on each paper type. Your result should have four columns - one for the account name and one for the average amount spent on each paper type.
+SELECT 
+	a.name,
+	AVG(standard_amt_usd) mean_std_usd,
+        AVG(gloss_amt_usd) mean_gloss_usd,
+        AVG(poster_amt_usd)mean_poster_usd
+FROM orders o
+       INNER JOIN accounts a
+	     ON o.account_id = a.id
+                GROUP BY 1
+
+#9. Determine the number of times a particular channel was used in the web_events table for each sales rep. Your final table should have three columns - the name of the sales rep, the channel, and the number of occurrences. Order your table with the highest number of occurrences first.
+
+
+#10. Determine the number of times a particular channel was used in the web_events table for each region. Your final table should have three columns - the region name, the channel, and the number of occurrences. Order your table with the highest number of occurrences first.
+
+
+#11. For each account, determine the average amount of each type of paper they purchased across their orders. Your result should have four columns - one for the account name and one for the average quantity purchased for each of the paper types for each account.
+SELECT 
+	a.name,
+	AVG(standard_qty) mean_std_qty,
+        AVG(gloss_qty) mean_gloss_qty,
+        AVG(poster_qty) mean_poster_qty
+FROM orders o
+      INNER JOIN accounts a
+	     ON o.account_id = a.id
+	       GROUP BY a.name      
+     
