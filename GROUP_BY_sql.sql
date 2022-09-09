@@ -46,12 +46,13 @@ LIMIT 1
 
 
 #4. Find the total number of times each type of channel from the web_events was used. Your final table should have two columns - the channel and the number of times the channel was used.
-
+SELECT 
+      channel, 
+      COUNT(*) as total_num
+FROM web_events
+        GROUP BY 1
+          ORDER BY 2 DESC
            
-           
-           
-
-       
 #5. Who was the primary contact associated with the earliest web_event?
 
 #6. What was the smallest order placed by each account in terms of total usd. Provide only two columns - the account name and the total usd. Order from smallest dollar amounts to largest.
