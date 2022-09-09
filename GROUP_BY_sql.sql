@@ -65,5 +65,22 @@ INNER JOIN web_events w
            limit 1
 
 #6. What was the smallest order placed by each account in terms of total usd. Provide only two columns - the account name and the total usd. Order from smallest dollar amounts to largest.
+SELECT 
+	name, 
+	MIN(total_amt_usd) smallest_order
+FROM orders o
+LEFT JOIN accounts a
+      ON o.account_id = a.id
+   GROUP BY name
+      ORDER BY 2
+      
 
 #7. Find the number of sales reps in each region. Your final table should have two columns - the region and the number of sales_reps. Order from fewest reps to most reps.
+SELECT  
+	r.name, 
+	COUNT(region_id) c
+FROM sales_reps s
+LEFT JOIN region r
+      ON s.region_id = r.id
+    GROUP BY r.name
+      ORDER BY 2 
