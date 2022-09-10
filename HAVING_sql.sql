@@ -23,13 +23,9 @@ FROM( SELECT
                    GROUP BY s.id, s.name
                        HAVING COUNT(*) > 5
                           ORDER BY num_accounts) AS Table1;
+			  
      
-     
-     
-     
-How many accounts have more than 20 orders?
-
-
+#How many accounts have more than 20 orders?
 SELECT a.id, a.name, COUNT(*) num_orders
 FROM accounts a
 JOIN orders o
@@ -37,8 +33,18 @@ ON a.id = o.account_id
 GROUP BY a.id, a.name
 HAVING COUNT(*) > 20
 ORDER BY num_orders;
-Which account has the most orders?
 
+SELECT COUNT(count_order) acc_count 
+FROM (SELECT a.name, COUNT(*) count_order
+FROM accounts a 
+   LEFT JOIN orders o
+		ON a.id = o.account_id
+         GROUP BY 1
+         HAVING COUNT(*) > 20        
+         ORDER BY 2) as t1
+
+-
+#Which account has the most orders?
 SELECT a.id, a.name, COUNT(*) num_orders
 FROM accounts a
 JOIN orders o
