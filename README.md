@@ -2,7 +2,7 @@
 
 ### Introduction 
 
-> I be learnt how to write Structured Query Language (SQL) to interact with a database. I don't need to download any software, and I will still be able to test my skills!  SQL is an extremely in demand skill. Tons of jobs use SQL, and in the this project i will be learning how to utilize SQL to analyze data and answer business questions.  
+> I learnt how to write Structured Query Language (SQL) to interact with a database. I don't need to download any software, and I will still be able to test my skills!  SQL is an extremely in demand skill. Tons of jobs use SQL, and in the this project i will be learning how to utilize SQL to analyze data and answer business questions.  
 
 ### Project 
 
