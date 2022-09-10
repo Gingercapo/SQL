@@ -44,61 +44,76 @@ FROM accounts a
          ORDER BY 2) as t1
 
 #Which account has the most orders?
-SELECT a.id, a.name, COUNT(*) num_orders
-FROM accounts a
-JOIN orders o
-ON a.id = o.account_id
-GROUP BY a.id, a.name
-ORDER BY num_orders DESC
-LIMIT 1;
-
-
-#How many accounts spent more than 30,000 usd total across all orders?
-SELECT a.id, a.name, SUM(o.total_amt_usd) total_spent
-FROM accounts a
-JOIN orders o
-ON a.id = o.account_id
-GROUP BY a.id, a.name
-HAVING SUM(o.total_amt_usd) > 30000
-ORDER BY total_spent;
-
-#How many accounts spent less than 1,000 usd total across all orders?
-SELECT a.id, a.name, SUM(o.total_amt_usd) total_spent
+SELECT
+	a.id, 
+	a.name,
+	COUNT(*) num_orders
 FROM accounts a
       JOIN orders o
-         ON a.id = o.account_id
-           GROUP BY a.id, a.name
-              HAVING SUM(o.total_amt_usd) < 1000
-                 ORDER BY total_spent;
-		 
+	ON a.id = o.account_id
+	   GROUP BY a.id, a.name
+	     HAVING COUNT(*) > 68
+	        ORDER BY num_orders DESC
+
+#How many accounts spent more than 30,000 usd total across all orders?
+SELECT COUNT(*) Acc_Greater_30000
+FROM (SELECT SUM(o.total_amt_usd) usd_max, a.name, a.id
+	FROM orders o
+	LEFT JOIN accounts a
+		ON o.account_id = a.id
+	    GROUP BY a.name, a.id
+	      HAVING SUM(o.total_amt_usd) > 30000
+	        ORDER BY 1 ) t1
+
+
+#How many accounts spent less than 1,000 usd total across all orders?
+SELECT COUNT(*) Acc_Greater_30000
+FROM (SELECT SUM(o.total_amt_usd) usd_max, a.name, a.id
+	FROM orders o
+	LEFT JOIN accounts a
+		ON o.account_id = a.id
+	    GROUP BY a.name, a.id
+	      HAVING SUM(o.total_amt_usd) < 1000
+	        ORDER BY 1 ) t1
+
 #Which account has spent the most with us?
-SELECT a.id, a.name, SUM(o.total_amt_usd) total_spent
-FROM accounts a
-    JOIN orders o
-        ON a.id = o.account_id
-           GROUP BY a.id, a.name
-             ORDER BY total_spent DESC
-               LIMIT 1;
+SELECT SUM(o.total_amt_usd) usd_max, a.name, a.id
+FROM orders o
+LEFT JOIN accounts a
+	ON o.account_id = a.id
+     GROUP BY a.name, a.id
+       ORDER BY 1 desc
+          LIMIT 1;
 	       
 #Which account has spent the least with us?
-SELECT a.id, a.name, SUM(o.total_amt_usd) total_spent
-FROM accounts a
-JOIN orders o
-ON a.id = o.account_id
-GROUP BY a.id, a.name
-ORDER BY total_spent
-LIMIT 1;
+SELECT SUM(o.total_amt_usd) usd_min, a.name, a.id
+FROM orders o
+LEFT JOIN accounts a
+	ON o.account_id = a.id
+     GROUP BY a.name, a.id
+       ORDER BY 1 
+          LIMIT 1;
 
 
 #Which accounts used facebook as a channel to contact customers more than 6 times?
-
+SELECT a.id, a.name, w.channel, COUNT(*) channel_use
+FROM accounts a
+LEFT JOIN web_events w
+	 ON a.id = w.account_id
+     WHERE channel = 'facebook'
+     GROUP BY 1,2,3
+     HAVING COUNT(*) > 6
+     ORDER BY 4 DESC;
+     
+     # OR
+     
 SELECT a.id, a.name, w.channel, COUNT(*) use_of_channel
 FROM accounts a
 JOIN web_events w
-ON a.id = w.account_id
-GROUP BY a.id, a.name, w.channel
-HAVING COUNT(*) > 6 AND w.channel = 'facebook'
-ORDER BY use_of_channel;
+	ON a.id = w.account_id
+	GROUP BY a.id, a.name, w.channel
+	HAVING COUNT(*) > 6 AND w.channel = 'facebook'
+	ORDER BY use_of_channel;
 
 
 #Which account used facebook most as a channel?
